@@ -6,7 +6,7 @@ import Header from "./components/Header";
 
 export default function Home() {
   return (
-    <div className="relative h-screen overflow-hidden bg-linear-to-b from-trasparent to-70% to-black lg:h-[140vh]">
+    <div className="relative h-screen overflow-hidden bg-linear-to-b from-trasparent to-70% to-[#141414] lg:h-[140vh]">
       <Header />
       <main className="relative pb-24 pl-4 lg:pl-16">
         <div className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
@@ -38,6 +38,27 @@ export default function Home() {
             <InformationCircleIcon className="h-6" />
             More Info
           </button>
+        </div>
+
+        <div className="flex-col space-y-4">
+          <div className="flex">
+            <h2 className="-ml-2 inline-flex items-center text-2xl font-bold">Featured</h2>
+          </div>
+          <div className="-ml-8 flex space-x-4 overflow-x-scroll p-6 scrollbar-hide">
+            {[1, 2, 3, 4, 5, 5, 5, 5].map((index) => (
+              <div
+                key={index}
+                className="group relative h-28 min-w-[200px] cursor-pointer rounded bg-linear-to-t from-transparent to-black transition-transform duration-200 ease-out hover:opacity-100  md:hover:scale-110 hover:z-50 md:h-36 md:min-w-[260px]"
+              >
+                <Image
+                  src={`/item_${index}.png`}
+                  alt={`Item ${index}`}
+                  fill={true}
+                  className="rounded"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </main>
     </div>
