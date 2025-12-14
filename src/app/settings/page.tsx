@@ -1,3 +1,4 @@
+import BuggyButton from "../components/BuggyButton";
 import { getAppSettings } from "../lib/settings";
 
 export default async function Settings() {
@@ -11,6 +12,8 @@ export default async function Settings() {
         <p>Theme: {theme}</p>
         <p>Language: {language}</p>
       </div>
+
+      <BuggyButton />
     </div>
   )
 }
