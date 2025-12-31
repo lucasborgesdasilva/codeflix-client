@@ -1,8 +1,8 @@
 'use client';
 import { useScroll } from "../hooks/useScroll";
-import { Logo } from "./Logo";
-import { NavLinks } from "./NavLinks";
-import { UserProfile } from "./UserProfile";
+import { Logo } from "./logo";
+import { NavLinks } from "./nav-links";
+import { UserProfile } from "./user-profile";
 
 export default function Header() {
   const { isScrolled } = useScroll();

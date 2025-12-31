@@ -1,6 +1,6 @@
-import { Banner } from "./components/Banner";
-import Header from "./components/Header";
-import { MovieRow } from "./components/MovieRow";
+import { Banner } from "./components/banner";
+import Header from "./components/header";
+import { MovieRow } from "./components/movie-row";
 
 export default function Home() {
   return (

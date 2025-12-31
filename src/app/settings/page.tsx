@@ -1,4 +1,4 @@
-import BuggyButton from "../components/BuggyButton";
+import BuggyButton from "../components/buggy-button";
 import { getAppSettings } from "../lib/settings";
 
 export default async function Settings() {

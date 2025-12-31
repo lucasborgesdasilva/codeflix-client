@@ -1,6 +1,6 @@
 'use client';
 
-import { InputField } from '../InputField';
+import { InputField } from '../input-field';
 
 export default function LoginForm() {
   return (
