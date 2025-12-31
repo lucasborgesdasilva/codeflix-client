@@ -1,7 +1,7 @@
 import { getUserById } from "@/app/lib/settings";
 import { notFound } from "next/navigation";
 
-async function User({
+export default async function User({
   params,
 }: {
   params: Promise<{ id: string }>;
@@ -35,5 +35,3 @@ async function User({
     </div>
   );
 }
-
-export default User;
