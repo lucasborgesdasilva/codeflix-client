@@ -2,15 +2,20 @@
 
 import { InputField } from '../input-field';
 
-export default function LoginForm() {
+export default function RegisterForm() {
+  const handleSubmit = (e: React.FormEvent) => {
+    alert('Submit registration form');
+    e.preventDefault();
+  }
+
   return (
-    <form action="" className="flex w-full max-w-md rounded flex-col space-y-4 bg-[#141414]/90 px-4 py-8 shadow-lg">
+    <form onSubmit={handleSubmit} className="flex w-full max-w-md rounded flex-col space-y-4 bg-[#141414]/90 px-4 py-8 shadow-lg">
       <div className="flex flex-col items-center space-y-4">
-        <h1 className="text-3xl font-bold">Login</h1>
+        <h1 className="text-3xl font-bold">Register</h1>
         <p className="text-sm text-gray-500">
-          New to the app ? {' '}
-          <a href="#" className="text-red-500 hover:underline">
-            Register
+          Already have an account? {' '}
+          <a href="login" className="text-red-500 hover:underline">
+            Login
           </a>
         </p>
       </div>
@@ -28,13 +33,20 @@ export default function LoginForm() {
           placeholder="Enter your password"
           type="password"
         />
+
+        <InputField
+          id="confirm-password"
+          label="Confirm Password"
+          placeholder="Enter your password again"
+          type="password"
+        />
       </div>
       <div className="flex flex-col-reverse space-y-2 pt-2 sm:flex-row sm:space-x-2 sm:space-y-0">
         <button
           type="submit"
           className="flex w-full items-center justify-center rounded-lg bg-red-500 hover:bg-red-600 px-4 py-2 text-sm font-semibold text-white sm:w-auto sm:px-8"
         >
-          Login
+          Register
         </button>
       </div>
     </form>
