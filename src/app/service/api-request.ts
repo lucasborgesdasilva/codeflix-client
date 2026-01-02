@@ -1,31 +1,47 @@
-const API_URL = 'http://localhost:3333';
+const API_URL = process.env.API_URL || 'http://localhost:3333';
 
 export interface ApiQueryParams {
   [key: string]: string | number | boolean;
 }
 
-export interface requestOptions {
+export interface RequestOptions {
   page?: number;
   _limit?: number;
   rating_like?: string;
 }
 
-export const defaultOptions: requestOptions = {
+export const defaultOptions: RequestOptions = {
   page: 1,
   _limit: 10,
 };
 
+// Essa função constrói uma query string a partir dos parâmetros fornecidos, filtrando valores indefinidos e codificando os valores para URL.
+export function buildQueryString(params: ApiQueryParams) {
+  const query = Object.entries(params)
+    .filter(([, value]) => value !== undefined)
+    .map(([key, value]) => [key, encodeURIComponent(String(value))]);
+
+  return `?${new URLSearchParams(Object.fromEntries(query)).toString()}`;
+}
+
+// Essa função realiza uma requisição à API, construindo a URL com os parâmetros de consulta e mesclando as opções padrão com as fornecidas.
 export async function apiRequest(
   endpoint: string,
   query: ApiQueryParams = {},
-  options: requestOptions = {}
+  options: RequestOptions = {}
 ) {
-  try {
-    const response = await fetch(`${API_URL}/${endpoint}`);
-    const data = await response.json();
+  const mergedOptions: RequestOptions = { ...defaultOptions, ...options };
+  const queryString = buildQueryString({ ...query, ...mergedOptions });
 
-    return data;
+  try {
+    const response = await fetch(`${API_URL}/${endpoint}${queryString}`);
+
+    if (!response.ok) {
+      throw new Error(`API request failed: ${response.statusText}`);
+    }
+
+    return response.json();
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
