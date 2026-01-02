@@ -1,5 +1,6 @@
 import { User } from "./types";
 
+
 export const getAppSettings = (): Promise<{ theme: string, language: string }> => {
   return new Promise((resolve) => {
     setTimeout(() => {
