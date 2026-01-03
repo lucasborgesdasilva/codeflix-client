@@ -15,9 +15,9 @@ export default async function Home() {
   );
 
   return (
-    <div className="relative h-screen overflow-hidden bg-linear-to-b from-trasparent to-70% to-[#141414] lg:h-[140vh]">
+    <div className="relative min-h-screen bg-linear-to-b from-trasparent to-70% to-[#141414] lg:h-[140vh]">
       <Header />
-      <main className="relative pb-24 pl-4 lg:pl-16">
+      <main className="relative pb-24 p-4 lg:pl-16">
         <Banner movie={featuredMovie} />
 
         {movies.map(movie => (
