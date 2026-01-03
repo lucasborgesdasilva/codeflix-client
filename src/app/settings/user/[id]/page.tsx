@@ -1,4 +1,4 @@
-import { getUserById } from "@/app/lib/settings";
+import { getUserById } from "@/app/api/settings";
 import { notFound } from "next/navigation";
 
 export default async function User({

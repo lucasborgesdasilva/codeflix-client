@@ -1,5 +1,6 @@
+import { getUserInfo } from "@/app/api/settings";
 import BuggyButton from "@/app/components/buggy-button";
-import { getUserInfo } from "@/app/lib/settings";
+
 
 export default async function User() {
   const { name, email, age } = await getUserInfo();
