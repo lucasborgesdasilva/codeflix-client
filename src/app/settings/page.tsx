@@ -1,5 +1,6 @@
+import { getAppSettings } from "../api/settings";
 import BuggyButton from "../components/buggy-button";
-import { getAppSettings } from "../lib/settings";
+
 
 export default async function Settings() {
   const { theme, language } = await getAppSettings();
