@@ -24,7 +24,7 @@ export function MovieRow({ sectionTitle }: IMovieRowProps) {
       <h2 className="-ml-2 inline-flex items-center text-2xl font-bold">{sectionTitle}</h2>
     </div>
     <div className="-ml-8 flex space-x-4 overflow-x-scroll p-6 scrollbar-hide">
-      {[1, 2, 3, 4, 5, 5, 5, 5].map((index) => (
+      {[1, 2, 3, 4, 5].map((index) => (
         <MovieCard key={index} index={index} />
       ))}
     </div>
