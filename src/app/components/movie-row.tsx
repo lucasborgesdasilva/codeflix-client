@@ -1,7 +1,9 @@
 import Image from "next/image";
+import { Movies } from "../types/movie";
 
 interface IMovieRowProps {
   sectionTitle: string;
+  movies: Movies
 }
 
 interface IMovieCardProps {
@@ -18,14 +20,17 @@ const MovieCard = ({ index }: IMovieCardProps) => (
   </div>
 )
 
-export function MovieRow({ sectionTitle }: IMovieRowProps) {
+export function MovieRow({ sectionTitle, movies }: IMovieRowProps) {
   return <div className="flex-col space-y-4">
     <div className="flex">
       <h2 className="-ml-2 inline-flex items-center text-2xl font-bold">{sectionTitle}</h2>
     </div>
     <div className="-ml-8 flex space-x-4 overflow-x-scroll p-6 scrollbar-hide">
-      {[1, 2, 3, 4, 5].map((index) => (
-        <MovieCard key={index} index={index} />
+      {movies.map((movie, index) => (
+        <h1 key={movie.id}>
+          {movie.title}
+        </h1>
+        // <MovieCard key={movie.id} index={index} />
       ))}
     </div>
   </div>;
