@@ -9,7 +9,6 @@ export default async function Home() {
   const movies = await Promise.all(
     genres.map(async (genre) => {
       const movies = await getMoviesByGenre(genre, { _limit: 8 });
-      console.log(movies);
       return { sectionTitle: genre, movies };
     })
   );
@@ -21,7 +20,6 @@ export default async function Home() {
         <Banner movie={featuredMovie} />
 
         {movies.map(movie => (
-          console.log(movie),
           <MovieRow
             key={movie.sectionTitle}
             sectionTitle={movie.sectionTitle}
