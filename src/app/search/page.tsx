@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Header from '../components/header';
 import { MovieCard } from '../components/movie-card';
 import { searchMovies } from '../service/movie-service';
@@ -20,7 +21,9 @@ export default async function SearchResults({ searchParams }: ISearchResultsProp
     return (
       <div>
         <div className='relative bg-linear-to-b pb-8'>
-          <Header />
+          <Suspense fallback={null}>
+            <Header />
+          </Suspense>
           <main className='relative mb-48 mt-20 h-screen pl-4 lg:pl-16'>
             <h1 className='font-bold text-2xl mb-4'>
               Search Results for: <span className='text-red-500'>{title}</span>
@@ -35,7 +38,9 @@ export default async function SearchResults({ searchParams }: ISearchResultsProp
   return (
     <div>
       <div className='relative bg-linear-to-b pb-8'>
-        <Header />
+        <Suspense fallback={null}>
+          <Header />
+        </Suspense>
         <main className='relative mb-48 mt-20 h-screen px-4 lg:px-16'>
           <h1 className='font-bold text-2xl mb-4'>
             Search Results for: <span className='text-red-500'>{title}</span>

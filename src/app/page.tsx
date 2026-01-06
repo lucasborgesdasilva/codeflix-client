@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Banner } from "./components/banner";
 import Header from "./components/header";
 import { MovieRow } from "./components/movie-row";
@@ -15,7 +16,9 @@ export default async function Home() {
 
   return (
     <div className="relative min-h-screen bg-linear-to-b from-trasparent to-70% to-[#141414] lg:h-[140vh]">
-      <Header />
+      <Suspense fallback={null}>
+        <Header />
+      </Suspense>
       <main className="relative pb-24 p-4 lg:pl-16">
         <Banner movie={featuredMovie} />
 
