@@ -1,4 +1,5 @@
 'use client';
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 import { useScroll } from "../hooks/useScroll";
@@ -26,7 +27,9 @@ export default function Header() {
   return (
     <header className={`${isScrolled && 'bg-black'} fixed top-0 z-50 flex w-full items-center justify-between p-2 px-4 lg:px-16 lg:py-4 transition-all`}>
       <div className="flex items-center space-x-2 md:space-x-8">
-        <Logo />
+        <Link href="/">
+          <Logo />
+        </Link>
         <NavLinks />
       </div>
       <div className="flex items-center space-x-2 md:space-x-8">

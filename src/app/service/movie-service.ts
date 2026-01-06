@@ -1,7 +1,7 @@
 import { Movie, Movies } from "../types/movie";
 import { apiRequest, RequestOptions } from "./api-request";
 
-export const getMovieById = async (id: number): Promise<Movie> => {
+export const getMovieById = async (id: string): Promise<Movie> => {
   return apiRequest(`movies/${encodeURIComponent(id)}`);
 };
 
